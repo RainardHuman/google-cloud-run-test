@@ -1,8 +1,9 @@
 FROM openjdk:11
 
-ADD build/libs/grindhouse-0.0.1-SNAPSHOT.jar grindhouse.jar
+WORKDIR /usr/src/app
+
+COPY . .
 
 EXPOSE 9090
 
-ENTRYPOINT ["java","-jar","grindhouse.jar"]
-
+ENTRYPOINT ["./gradlew","bootRun"]
